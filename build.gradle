@@ -2,16 +2,6 @@ group 'com.hiep.tuto'
 version '1.0-SNAPSHOT'
 apply plugin: 'war'
 
-
-buildscript {
-    repositories {
-        jcenter()
-    }
-    dependencies {
-        classpath "com.bmuschko:gradle-tomcat-plugin:2.2.5"
-    }
-}
-
 repositories {
     mavenCentral()
 }
