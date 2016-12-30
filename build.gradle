@@ -1,0 +1,30 @@
+group 'com.hiep.tuto'
+version '1.0-SNAPSHOT'
+apply plugin: 'war'
+
+
+buildscript {
+    repositories {
+        jcenter()
+    }
+    dependencies {
+        classpath "com.bmuschko:gradle-tomcat-plugin:2.2.5"
+    }
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testCompile group: 'junit', name: 'junit', version: '4.11'
+    compile "javax.servlet:servlet-api:2.5"
+    compile group: 'mysql', name: 'mysql-connector-java', version: '5.1.40'
+}
+
+task deploy(type: Copy, dependsOn: "war") {
+    from("build/libs") {
+        include "*.war"
+    }
+    into "/home/duong/prg/tomcat/webapps"
+}
